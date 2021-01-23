@@ -2,5 +2,5 @@
 
 Make connections, share preferences!
 
-![Registration Screen](assets/screenshots/registration1.jpg)
-![Registration Screen](assets/screenshots/registration.jpg)
+<img src="assets/screenshots/registration1.jpg" height=500, width=250>
+<img src="assets/screenshots/registration.jpg" height=500, width=250>
