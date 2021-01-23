@@ -25,6 +25,14 @@ class _AccountCreationPageState extends State<AccountCreationPage> {
     _passwordCtrl = TextEditingController()..addListener(_passwordListener);
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    _usernameCtrl.dispose();
+    _emailCtrl.dispose();
+    _passwordCtrl.dispose();
+  }
+
   void _usernameListener() {
     setState(() {});
   }
@@ -51,9 +59,9 @@ class _AccountCreationPageState extends State<AccountCreationPage> {
         width: MediaQuery.of(context).size.width,
         child: ListView(
           children: [
-            SizedBox(height: 50),
-            AppLogo(),
-            SizedBox(height: 40),
+            const SizedBox(height: 50),
+            const AppLogo(),
+            const SizedBox(height: 40),
             Align(
               alignment: Alignment.center,
               child: RichText(
@@ -78,40 +86,39 @@ class _AccountCreationPageState extends State<AccountCreationPage> {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               margin: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   CustomTextField(
                     label: 'Name',
                     textEditingCtrl: _usernameCtrl,
                     textCapitalization: TextCapitalization.words,
                   ),
-                  SizedBox(height: 14),
+                  const SizedBox(height: 14),
                   CustomTextField(
                     label: 'Email',
                     textInputType: TextInputType.emailAddress,
                     textEditingCtrl: _emailCtrl,
                   ),
-                  SizedBox(height: 14),
+                  const SizedBox(height: 14),
                   PasswordField(
                     label: 'Password',
                     passwordEditingCtrl: _passwordCtrl,
                   ),
-                  SizedBox(height: 16),
-                  PolicyNote(),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
+                  const PolicyNote(),
+                  const SizedBox(height: 16),
                   CustomButton(
                     label: 'Create Account',
                     onPressed: _isValid()
                         ? () {
-                            //TODO
+                            print('account created');
                           }
                         : null,
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 50),
                   GestureDetector(
                     child: RichText(
                       text: TextSpan(
@@ -130,8 +137,7 @@ class _AccountCreationPageState extends State<AccountCreationPage> {
                       ),
                     ),
                     onTap: () {
-                      //TODO
-                      print('login');
+                      // TODO navigate to another login screen
                     },
                   )
                 ],
